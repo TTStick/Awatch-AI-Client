@@ -2,6 +2,31 @@
 
 独立运行的 Apple Watch AI 客户端（watchOS 10+，无需 iPhone App），支持任意 OpenAI 兼容接口，内置 MiniMax 预设。
 
+## 截图
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/01-home.png" width="180" alt="首页 · 一步提问"><br>首页 · 一步提问</td>
+    <td align="center"><img src="docs/screenshots/02-chat-code.png" width="180" alt="代码高亮"><br>代码高亮</td>
+    <td align="center"><img src="docs/screenshots/03-chat-table.png" width="180" alt="Markdown 表格"><br>Markdown 表格</td>
+    <td align="center"><img src="docs/screenshots/04-chat-latex.png" width="180" alt="公式渲染"><br>公式渲染</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/05-agent-tool.png" width="180" alt="Agent 工具调用"><br>Agent 工具调用</td>
+    <td align="center"><img src="docs/screenshots/06-qa.png" width="180" alt="问答速览"><br>问答速览</td>
+    <td align="center"><img src="docs/screenshots/07-usage.png" width="180" alt="用量与计费"><br>用量与计费</td>
+    <td align="center"><img src="docs/screenshots/08-memory.png" width="180" alt="反思记忆"><br>反思记忆</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/09-timers.png" width="180" alt="倒计时"><br>倒计时</td>
+    <td align="center"><img src="docs/screenshots/10-watch-face.png" width="180" alt="表盘复杂功能"><br>表盘复杂功能</td>
+    <td align="center"><img src="docs/screenshots/11-corner.png" width="180" alt="角落复杂功能"><br>角落复杂功能</td>
+    <td align="center"><img src="docs/screenshots/12-smart-stack.png" width="180" alt="智能叠放"><br>智能叠放</td>
+  </tr>
+</table>
+
+> 截图来自 watchOS 模拟器（Apple Watch Ultra 49mm），对话内容为本地演示数据。
+
 ## 运行
 
 ```bash
