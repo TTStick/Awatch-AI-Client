@@ -1,0 +1,95 @@
+name: WatchAI
+options:
+  bundleIdPrefix: com.watchai
+  deploymentTarget:
+    watchOS: "10.0"
+  createIntermediateGroups: true
+  developmentLanguage: zh-Hans
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    ALWAYS_SEARCH_USER_PATHS: NO
+    COPY_PHASE_STRIP: NO
+  configs:
+    Debug:
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+      SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+      DEBUG_INFORMATION_FORMAT: dwarf
+      ONLY_ACTIVE_ARCH: YES
+      ENABLE_TESTABILITY: YES
+    Release:
+      SWIFT_OPTIMIZATION_LEVEL: "-O"
+      SWIFT_COMPILATION_MODE: wholemodule
+      DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+targets:
+  WatchAI:
+    type: application
+    platform: watchOS
+    sources:
+      - path: WatchAI
+      - path: Shared
+    dependencies:
+      - target: WatchAIWidgets
+    entitlements:
+      path: WatchAI/WatchAI.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.watchai.client]
+    info:
+      path: WatchAI/Info.plist
+      properties:
+        CFBundleDisplayName: Watch AI
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleDevelopmentRegion: zh-Hans
+        WKApplication: true
+        WKWatchOnly: true
+        NSPhotoLibraryUsageDescription: 选择手表相册中的图片发送给 AI 进行识别与分析。
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+          NSAllowsLocalNetworking: true
+        CFBundleURLTypes:
+          - CFBundleURLName: com.watchai.client
+            CFBundleURLSchemes: [watchai]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.watchai.client
+        PRODUCT_NAME: WatchAI
+        TARGETED_DEVICE_FAMILY: "4"
+        SDKROOT: watchos
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: YES
+        SWIFT_EMIT_LOC_STRINGS: NO
+  WatchAIWidgets:
+    type: app-extension
+    platform: watchOS
+    sources:
+      - path: WatchAIWidgets
+      - path: Shared
+      - path: WatchAI/Models/AgentModels.swift
+    entitlements:
+      path: WatchAIWidgets/WatchAIWidgets.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.watchai.client]
+    info:
+      path: WatchAIWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: Watch AI
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleDevelopmentRegion: zh-Hans
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.watchai.client.widgets
+        PRODUCT_NAME: WatchAIWidgets
+        TARGETED_DEVICE_FAMILY: "4"
+        SDKROOT: watchos
+        SKIP_INSTALL: YES
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_EMIT_LOC_STRINGS: NO
